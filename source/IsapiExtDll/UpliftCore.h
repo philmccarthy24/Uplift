@@ -2,14 +2,24 @@
 #include "IRequestHandler.h"
 #include <memory>
 #include <vector>
+#include <map>
 #include <string>
+
+//<for_generation>
+// forward class def for service interface
+namespace org
+{
+	namespace tempuri
+	{
+		class ITestService; 
+	}
+}
+//</for_generation>
 
 namespace Uplift
 {
 	namespace Core
 	{
-
-		class IMyService; // forward class def for service interface
 
 		class CUpliftCore : public IRequestHandler
 		{
@@ -17,19 +27,27 @@ namespace Uplift
 			CUpliftCore();
 			virtual ~CUpliftCore();
 
-			void RegisterService(std::shared_ptr<IMyService> pService);
+			//<for_generation>
+			void RegisterService(std::shared_ptr<org::tempuri::ITestService> pService);
+			//</for_generation>
 
 			virtual std::vector<char> HandleSoapRequest(const std::vector<char>& rawSoapPacket) override;
-			virtual std::string GetWebServiceDefinition() override;
-			virtual std::string GetStatusPage() override;
+			virtual std::string GetWebServiceDefinition(const std::string& rootRequestUri) override;
+			virtual std::string GetStatusPage(const std::string& rootRequestUri) override;
 
 		private:
-			std::shared_ptr<IMyService> m_pService;
+			std::string GetEmbeddedStringDataResource(int ResId);
 
-			// map of soap ports (service functions) to deserialisers required to go from xml -> c++ params
+			std::string m_strServiceName;
+			std::string m_strServiceVersion;
+			std::string m_strServiceStartTimestamp;
+
+			//<for_generation>
+			std::shared_ptr<org::tempuri::ITestService> m_pService;
+			//</for_generation>
+
+			// map of soap operation names to (de)serialisers required to go from xml -> c++ params and back
 			//std::map<string, IXmlSerialiser> m_soapInMessageDeserialisers
-			// map of soap ports (service functions) to serialisers required to go from c++ return -> xml
-			//std::map<string, IXmlSerialiser> m_soapOutMessageSerialisers
 		};
 
 	}

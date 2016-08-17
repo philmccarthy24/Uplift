@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>TestService status</title>
+		<title>{ServiceName} status</title>
 		<style>
 			html, body {
 				height: 100%;
@@ -100,13 +100,23 @@
 			}
 		</style>
 		<script>
-			// the C++ would need to paste in the start time here
-			var serviceStartTime = new Date("August 26, 2016 16:03:00");
-			setInterval(function() {
+			var serviceStartTime = new Date("{ServiceStartTimestamp}");
+			var checkStillUpCount = 0
+
+			function updateUpTime() {
 				var now_ms = new Date().getTime();
 				var interval_ms = now_ms - serviceStartTime.getTime();
 				document.getElementById("uptime").innerHTML = durationToString(interval_ms);
-			}, 500);
+				checkStillUpCount++;
+				if (checkStillUpCount > 9) {
+					location.reload(true);
+				}
+			}
+
+			window.onload = function() {
+				updateUpTime();
+				setInterval(updateUpTime, 1000);
+			}
 
 			function durationToString (interval_ms) {
 				const msInDay = 86400000;
@@ -123,27 +133,28 @@
 				
 				durationStr = "";
 				if (days > 0) {
-					durationStr += days + " days, ";
+					durationStr += days + " day" + (days > 1 ? "s" : "") + ", ";
 				}
 				if (hours > 0) {
-					durationStr += hours + " hours, ";
+					durationStr += hours + " hour" + (hours > 1 ? "s" : "") + ", ";
 				}
 				if (mins > 0) {
-					durationStr += mins + " minutes and ";
+					durationStr += mins + " minute" + (mins > 1 ? "s" : "") + " and ";
 				}
-				return durationStr + secs + " seconds.";
+				return durationStr + secs + " second" + (secs > 1 ? "s" : "") + ".";
 			}
-	</script>
+		</script>
 	</head>
 	<body>
 		<header>
-			<h1>TestService is running</h1>
+			<h1>{ServiceName} is running</h1>
 		</header>
 
 		<section>
-			<h2>TestService Status</h2>
-			<p>TestService has been running for <span id="uptime" /></p>
-			<p>The web service definition is <a href="http://localhost:8080/test/IsapiExtDll.dll?WSDL">available here</a>.</p>
+			<h2>{ServiceName} Status</h2>
+			<p>Version {ServiceVersion}</p>
+			<p>{ServiceName} has been running for <span id="uptime" /></p>
+			<p>The web service definition is <a href="{ServiceWsdlUri}">available here</a>.</p>
 		</section>
 		
 		<footer>

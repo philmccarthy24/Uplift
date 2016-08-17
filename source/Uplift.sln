@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IsapiExtDll", "IsapiExtDll\IsapiExtDll.vcxproj", "{26FB24ED-A8F6-4A93-9C5B-9A98D389BF3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestService", "TestService\TestService.csproj", "{487F555D-102A-47CA-8246-45A19EA0B989}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,9 @@ Global
 		{26FB24ED-A8F6-4A93-9C5B-9A98D389BF3B}.Debug|Win32.Build.0 = Debug|Win32
 		{26FB24ED-A8F6-4A93-9C5B-9A98D389BF3B}.Release|Win32.ActiveCfg = Release|Win32
 		{26FB24ED-A8F6-4A93-9C5B-9A98D389BF3B}.Release|Win32.Build.0 = Release|Win32
+		{487F555D-102A-47CA-8246-45A19EA0B989}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{487F555D-102A-47CA-8246-45A19EA0B989}.Debug|Win32.Build.0 = Debug|Any CPU
+		{487F555D-102A-47CA-8246-45A19EA0B989}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SOAP test data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1>C# service interface for generating some sample soap packets to test with</h1>
+
+<div class="highlight highlight-source-cs"><pre><span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">ITestService</span>
+{
+    <span class="pl-k">string</span> <span class="pl-en">GetData</span>();
+    CompositeType <span class="pl-en">GetDataUsingDataContract</span>(<span class="pl-k">CompositeType</span> <span class="pl-smi">composite</span>);
+    <span class="pl-k">void</span> <span class="pl-en">SetData</span>(<span class="pl-k">byte[]</span> <span class="pl-smi">binaryData</span>, <span class="pl-k">double</span> <span class="pl-smi">importantNumber</span>);
+    <span class="pl-k">long</span> <span class="pl-en">PerformOperation</span>(List&lt;double&gt; things, <span class="pl-k">int</span> <span class="pl-smi">widgetValue</span>);
+    <span class="pl-k">void</span> <span class="pl-en">ThrowException</span>();
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">CompositeType</span>
+{
+    <span class="pl-k">public</span> <span class="pl-k">bool</span> <span class="pl-en">BoolValue</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+    <span class="pl-k">public</span> <span class="pl-k">string</span> <span class="pl-en">StringValue</span> { <span class="pl-k">get</span>; <span class="pl-k">set</span>; }
+}</pre></div>
+
+<hr>
+
+<h2>string GetData()</h2>
+
+<h3>Request:</h3>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">s</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/envelope/<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span>&gt;
+    &lt;<span class="pl-ent">Action</span> <span class="pl-e">s</span><span class="pl-e">:</span><span class="pl-e">mustUnderstand</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/ws/2005/05/addressing/none<span class="pl-pds">"</span></span>&gt;http://tempuri.org/ITestService/GetData&lt;/<span class="pl-ent">Action</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+    &lt;<span class="pl-ent">GetData</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span> /&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+&lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span>&gt;</pre></div>
+
+<h3>Response:</h3>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">s</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/envelope/<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span> /&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+    &lt;<span class="pl-ent">GetDataResponse</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">GetDataResult</span>&gt;Here is a nice string&lt;/<span class="pl-ent">GetDataResult</span>&gt;
+    &lt;/<span class="pl-ent">GetDataResponse</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+&lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span>&gt;</pre></div>
+
+<hr>
+
+<h2>CompositeType GetDataUsingDataContract(CompositeType composite)</h2>
+
+<h3>Request:</h3>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">s</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/envelope/<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span>&gt;
+    &lt;<span class="pl-ent">Action</span> <span class="pl-e">s</span><span class="pl-e">:</span><span class="pl-e">mustUnderstand</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/ws/2005/05/addressing/none<span class="pl-pds">"</span></span>&gt;http://tempuri.org/ITestService/GetDataUsingDataContract&lt;/<span class="pl-ent">Action</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+    &lt;<span class="pl-ent">GetDataUsingDataContract</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">composite</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">d4p1</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.datacontract.org/2004/07/TestService<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">i</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">d4p1</span><span class="pl-ent">:</span><span class="pl-ent">BoolValue</span>&gt;false&lt;/<span class="pl-ent">d4p1</span><span class="pl-ent">:</span><span class="pl-ent">BoolValue</span>&gt;
+        &lt;<span class="pl-ent">d4p1</span><span class="pl-ent">:</span><span class="pl-ent">StringValue</span>&gt;Hello world&lt;/<span class="pl-ent">d4p1</span><span class="pl-ent">:</span><span class="pl-ent">StringValue</span>&gt;
+      &lt;/<span class="pl-ent">composite</span>&gt;
+    &lt;/<span class="pl-ent">GetDataUsingDataContract</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+&lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span>&gt;</pre></div>
+
+<h3>Response:</h3>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">s</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/envelope/<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span> /&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+    &lt;<span class="pl-ent">GetDataUsingDataContractResponse</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">GetDataUsingDataContractResult</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">a</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.datacontract.org/2004/07/TestService<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">i</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">a</span><span class="pl-ent">:</span><span class="pl-ent">BoolValue</span>&gt;false&lt;/<span class="pl-ent">a</span><span class="pl-ent">:</span><span class="pl-ent">BoolValue</span>&gt;
+        &lt;<span class="pl-ent">a</span><span class="pl-ent">:</span><span class="pl-ent">StringValue</span>&gt;Hello world&lt;/<span class="pl-ent">a</span><span class="pl-ent">:</span><span class="pl-ent">StringValue</span>&gt;
+      &lt;/<span class="pl-ent">GetDataUsingDataContractResult</span>&gt;
+    &lt;/<span class="pl-ent">GetDataUsingDataContractResponse</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+&lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span>&gt;</pre></div>
+
+<hr>
+
+<h2>void SetData(byte[] binaryData, double importantNumber)</h2>
+
+<h3>Request:</h3>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">s</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/envelope/<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span>&gt;
+    &lt;<span class="pl-ent">Action</span> <span class="pl-e">s</span><span class="pl-e">:</span><span class="pl-e">mustUnderstand</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/ws/2005/05/addressing/none<span class="pl-pds">"</span></span>&gt;http://tempuri.org/ITestService/SetData&lt;/<span class="pl-ent">Action</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+    &lt;<span class="pl-ent">SetData</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">binaryData</span>&gt;GSyPSMY=&lt;/<span class="pl-ent">binaryData</span>&gt;
+      &lt;<span class="pl-ent">importantNumber</span>&gt;3.14159&lt;/<span class="pl-ent">importantNumber</span>&gt;
+    &lt;/<span class="pl-ent">SetData</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+&lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span>&gt;</pre></div>
+
+<h3>Response:</h3>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">s</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/envelope/<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span> /&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+    &lt;<span class="pl-ent">SetDataResponse</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span> /&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+&lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span>&gt;</pre></div>
+
+<hr>
+
+<h2>long PerformOperation(List things, int widgetValue)</h2>
+
+<h3>Request:</h3>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">s</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/envelope/<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span>&gt;
+    &lt;<span class="pl-ent">Action</span> <span class="pl-e">s</span><span class="pl-e">:</span><span class="pl-e">mustUnderstand</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/ws/2005/05/addressing/none<span class="pl-pds">"</span></span>&gt;http://tempuri.org/ITestService/PerformOperation&lt;/<span class="pl-ent">Action</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+    &lt;<span class="pl-ent">PerformOperation</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">things</span>&gt;
+        &lt;<span class="pl-ent">double</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/2003/10/Serialization/Arrays<span class="pl-pds">"</span></span>&gt;2.342&lt;/<span class="pl-ent">double</span>&gt;
+        &lt;<span class="pl-ent">double</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/2003/10/Serialization/Arrays<span class="pl-pds">"</span></span>&gt;9.432532&lt;/<span class="pl-ent">double</span>&gt;
+        &lt;<span class="pl-ent">double</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/2003/10/Serialization/Arrays<span class="pl-pds">"</span></span>&gt;18.34&lt;/<span class="pl-ent">double</span>&gt;
+        &lt;<span class="pl-ent">double</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/2003/10/Serialization/Arrays<span class="pl-pds">"</span></span>&gt;-44.2143&lt;/<span class="pl-ent">double</span>&gt;
+      &lt;/<span class="pl-ent">things</span>&gt;
+      &lt;<span class="pl-ent">widgetValue</span>&gt;687&lt;/<span class="pl-ent">widgetValue</span>&gt;
+    &lt;/<span class="pl-ent">PerformOperation</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+&lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span>&gt;</pre></div>
+
+<h3>Response:</h3>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">s</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/envelope/<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span> /&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+    &lt;<span class="pl-ent">PerformOperationResponse</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">PerformOperationResult</span>&gt;-8587301708131772340&lt;/<span class="pl-ent">PerformOperationResult</span>&gt;
+    &lt;/<span class="pl-ent">PerformOperationResponse</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+&lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span>&gt;</pre></div>
+
+<hr>
+
+<h2>void ThrowException()</h2>
+
+<h3>Request</h3>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">s</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/envelope/<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span>&gt;
+    &lt;<span class="pl-ent">Action</span> <span class="pl-e">s</span><span class="pl-e">:</span><span class="pl-e">mustUnderstand</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/ws/2005/05/addressing/none<span class="pl-pds">"</span></span>&gt;http://tempuri.org/ITestService/ThrowException&lt;/<span class="pl-ent">Action</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+    &lt;<span class="pl-ent">ThrowException</span> <span class="pl-e">xmlns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span> /&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+&lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span>&gt;</pre></div>
+
+<h3>Response</h3>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">s</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/envelope/<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Header</span> /&gt;
+  &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+    &lt;<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Fault</span>&gt;
+      &lt;<span class="pl-ent">faultcode</span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">a</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/net/2005/12/windowscommunicationfoundation/dispatcher<span class="pl-pds">"</span></span>&gt;a:InternalServiceFault&lt;/<span class="pl-ent">faultcode</span>&gt;
+      &lt;<span class="pl-ent">faultstring</span> <span class="pl-e">xml</span><span class="pl-e">:</span><span class="pl-e">lang</span>=<span class="pl-s"><span class="pl-pds">"</span>en-GB<span class="pl-pds">"</span></span>&gt;The server was unable to process the request due to an internal error.  For more information about the error, either turn on IncludeExceptionDetailInFaults (either from ServiceBehaviorAttribute or from the <span class="pl-c1">&amp;lt;</span>serviceDebug<span class="pl-c1">&amp;gt;</span> configuration behavior) on the server in order to send the exception information back to the client, or turn on tracing as per the Microsoft .NET Framework SDK documentation and inspect the server trace logs.&lt;/<span class="pl-ent">faultstring</span>&gt;
+    &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Fault</span>&gt;
+  &lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Body</span>&gt;
+&lt;/<span class="pl-ent">s</span><span class="pl-ent">:</span><span class="pl-ent">Envelope</span>&gt;</pre></div>
+
+<hr>
+
+<h2>WSDL</h2>
+
+<div class="highlight highlight-text-xml"><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>utf-8<span class="pl-pds">"</span></span>?&gt;
+&lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">definitions</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>Service1<span class="pl-pds">"</span></span> <span class="pl-e">targetNamespace</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">wsdl</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/wsdl/<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">wsam</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2007/05/addressing/metadata<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">wsx</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/ws/2004/09/mex<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">wsap</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/ws/2004/08/addressing/policy<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">msc</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/ws/2005/12/wsdl/contract<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">wsp</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/ws/2004/09/policy<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">xsd</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2001/XMLSchema<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">soap</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/wsdl/soap/<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">wsu</span>=<span class="pl-s"><span class="pl-pds">"</span>http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">soap12</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/wsdl/soap12/<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">soapenc</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/encoding/<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">tns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">wsa10</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2005/08/addressing<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">wsaw</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2006/05/addressing/wsdl<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">wsa</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/ws/2004/08/addressing<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">types</span>&gt;
+        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">schema</span> <span class="pl-e">elementFormDefault</span>=<span class="pl-s"><span class="pl-pds">"</span>qualified<span class="pl-pds">"</span></span> <span class="pl-e">targetNamespace</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">xs</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2001/XMLSchema<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">import</span> <span class="pl-e">namespace</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.datacontract.org/2004/07/TestService<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">import</span> <span class="pl-e">namespace</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/2003/10/Serialization/Arrays<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>GetData<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>/&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>GetDataResponse<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">minOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>GetDataResult<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:string<span class="pl-pds">"</span></span>/&gt;
+                    &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>GetDataUsingDataContract<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">minOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>composite<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>q1:CompositeType<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">q1</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.datacontract.org/2004/07/TestService<span class="pl-pds">"</span></span>/&gt;
+                    &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>GetDataUsingDataContractResponse<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">minOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>GetDataUsingDataContractResult<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>q2:CompositeType<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">q2</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.datacontract.org/2004/07/TestService<span class="pl-pds">"</span></span>/&gt;
+                    &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>SetData<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">minOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>binaryData<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:base64Binary<span class="pl-pds">"</span></span>/&gt;
+                        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">minOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>importantNumber<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:double<span class="pl-pds">"</span></span>/&gt;
+                    &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>SetDataResponse<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>/&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>PerformOperation<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">minOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>things<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>q3:ArrayOfdouble<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">q3</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/2003/10/Serialization/Arrays<span class="pl-pds">"</span></span>/&gt;
+                        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">minOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>widgetValue<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:int<span class="pl-pds">"</span></span>/&gt;
+                    &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>PerformOperationResponse<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">minOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>PerformOperationResult<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:long<span class="pl-pds">"</span></span>/&gt;
+                    &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ThrowException<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>/&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ThrowExceptionResponse<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>/&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span>&gt;
+        &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">schema</span>&gt;
+        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">schema</span> <span class="pl-e">attributeFormDefault</span>=<span class="pl-s"><span class="pl-pds">"</span>qualified<span class="pl-pds">"</span></span> <span class="pl-e">elementFormDefault</span>=<span class="pl-s"><span class="pl-pds">"</span>qualified<span class="pl-pds">"</span></span> <span class="pl-e">targetNamespace</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/2003/10/Serialization/<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">xs</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2001/XMLSchema<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">tns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/2003/10/Serialization/<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>anyType<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:anyType<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>anyURI<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:anyURI<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>base64Binary<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:base64Binary<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>boolean<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:boolean<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>byte<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:byte<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>dateTime<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:dateTime<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>decimal<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:decimal<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>double<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:double<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>float<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:float<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:int<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>long<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:long<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>QName<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:QName<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>short<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:short<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>string<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:string<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>unsignedByte<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:unsignedByte<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>unsignedInt<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:unsignedInt<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>unsignedLong<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:unsignedLong<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>unsignedShort<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:unsignedShort<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>char<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:char<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">simpleType</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>char<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">restriction</span> <span class="pl-e">base</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:int<span class="pl-pds">"</span></span>/&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">simpleType</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>duration<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:duration<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">simpleType</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>duration<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">restriction</span> <span class="pl-e">base</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:duration<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">pattern</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?<span class="pl-pds">"</span></span>/&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">minInclusive</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>-P10675199DT2H48M5.4775808S<span class="pl-pds">"</span></span>/&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">maxInclusive</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>P10675199DT2H48M5.4775807S<span class="pl-pds">"</span></span>/&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">restriction</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">simpleType</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>guid<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:guid<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">simpleType</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>guid<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">restriction</span> <span class="pl-e">base</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:string<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">pattern</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}<span class="pl-pds">"</span></span>/&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">restriction</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">simpleType</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">attribute</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>FactoryType<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:QName<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">attribute</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>Id<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:ID<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">attribute</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>Ref<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:IDREF<span class="pl-pds">"</span></span>/&gt;
+        &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">schema</span>&gt;
+        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">schema</span> <span class="pl-e">elementFormDefault</span>=<span class="pl-s"><span class="pl-pds">"</span>qualified<span class="pl-pds">"</span></span> <span class="pl-e">targetNamespace</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.datacontract.org/2004/07/TestService<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">xs</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2001/XMLSchema<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">tns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.datacontract.org/2004/07/TestService<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>CompositeType<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">minOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>BoolValue<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:boolean<span class="pl-pds">"</span></span>/&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">minOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>StringValue<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:string<span class="pl-pds">"</span></span>/&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>CompositeType<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:CompositeType<span class="pl-pds">"</span></span>/&gt;
+        &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">schema</span>&gt;
+        &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">schema</span> <span class="pl-e">elementFormDefault</span>=<span class="pl-s"><span class="pl-pds">"</span>qualified<span class="pl-pds">"</span></span> <span class="pl-e">targetNamespace</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/2003/10/Serialization/Arrays<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">xs</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.w3.org/2001/XMLSchema<span class="pl-pds">"</span></span> <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">tns</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.microsoft.com/2003/10/Serialization/Arrays<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ArrayOfdouble<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+                    &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">minOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">maxOccurs</span>=<span class="pl-s"><span class="pl-pds">"</span>unbounded<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>double<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>xs:double<span class="pl-pds">"</span></span>/&gt;
+                &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">sequence</span>&gt;
+            &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">complexType</span>&gt;
+            &lt;<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">element</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ArrayOfdouble<span class="pl-pds">"</span></span> <span class="pl-e">nillable</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ArrayOfdouble<span class="pl-pds">"</span></span>/&gt;
+        &lt;/<span class="pl-ent">xs</span><span class="pl-ent">:</span><span class="pl-ent">schema</span>&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">types</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ITestService_GetData_InputMessage<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">part</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span> <span class="pl-e">element</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:GetData<span class="pl-pds">"</span></span>/&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ITestService_GetData_OutputMessage<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">part</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span> <span class="pl-e">element</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:GetDataResponse<span class="pl-pds">"</span></span>/&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ITestService_GetDataUsingDataContract_InputMessage<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">part</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span> <span class="pl-e">element</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:GetDataUsingDataContract<span class="pl-pds">"</span></span>/&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ITestService_GetDataUsingDataContract_OutputMessage<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">part</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span> <span class="pl-e">element</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:GetDataUsingDataContractResponse<span class="pl-pds">"</span></span>/&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ITestService_SetData_InputMessage<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">part</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span> <span class="pl-e">element</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:SetData<span class="pl-pds">"</span></span>/&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ITestService_SetData_OutputMessage<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">part</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span> <span class="pl-e">element</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:SetDataResponse<span class="pl-pds">"</span></span>/&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ITestService_PerformOperation_InputMessage<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">part</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span> <span class="pl-e">element</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:PerformOperation<span class="pl-pds">"</span></span>/&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ITestService_PerformOperation_OutputMessage<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">part</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span> <span class="pl-e">element</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:PerformOperationResponse<span class="pl-pds">"</span></span>/&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ITestService_ThrowException_InputMessage<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">part</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span> <span class="pl-e">element</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ThrowException<span class="pl-pds">"</span></span>/&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ITestService_ThrowException_OutputMessage<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">part</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>parameters<span class="pl-pds">"</span></span> <span class="pl-e">element</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ThrowExceptionResponse<span class="pl-pds">"</span></span>/&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">message</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">portType</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ITestService<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>GetData<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span> <span class="pl-e">wsaw</span><span class="pl-e">:</span><span class="pl-e">Action</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/GetData<span class="pl-pds">"</span></span> <span class="pl-e">message</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ITestService_GetData_InputMessage<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span> <span class="pl-e">wsaw</span><span class="pl-e">:</span><span class="pl-e">Action</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/GetDataResponse<span class="pl-pds">"</span></span> <span class="pl-e">message</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ITestService_GetData_OutputMessage<span class="pl-pds">"</span></span>/&gt;
+        &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>GetDataUsingDataContract<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span> <span class="pl-e">wsaw</span><span class="pl-e">:</span><span class="pl-e">Action</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/GetDataUsingDataContract<span class="pl-pds">"</span></span> <span class="pl-e">message</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ITestService_GetDataUsingDataContract_InputMessage<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span> <span class="pl-e">wsaw</span><span class="pl-e">:</span><span class="pl-e">Action</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/GetDataUsingDataContractResponse<span class="pl-pds">"</span></span> <span class="pl-e">message</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ITestService_GetDataUsingDataContract_OutputMessage<span class="pl-pds">"</span></span>/&gt;
+        &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>SetData<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span> <span class="pl-e">wsaw</span><span class="pl-e">:</span><span class="pl-e">Action</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/SetData<span class="pl-pds">"</span></span> <span class="pl-e">message</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ITestService_SetData_InputMessage<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span> <span class="pl-e">wsaw</span><span class="pl-e">:</span><span class="pl-e">Action</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/SetDataResponse<span class="pl-pds">"</span></span> <span class="pl-e">message</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ITestService_SetData_OutputMessage<span class="pl-pds">"</span></span>/&gt;
+        &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>PerformOperation<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span> <span class="pl-e">wsaw</span><span class="pl-e">:</span><span class="pl-e">Action</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/PerformOperation<span class="pl-pds">"</span></span> <span class="pl-e">message</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ITestService_PerformOperation_InputMessage<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span> <span class="pl-e">wsaw</span><span class="pl-e">:</span><span class="pl-e">Action</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/PerformOperationResponse<span class="pl-pds">"</span></span> <span class="pl-e">message</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ITestService_PerformOperation_OutputMessage<span class="pl-pds">"</span></span>/&gt;
+        &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ThrowException<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span> <span class="pl-e">wsaw</span><span class="pl-e">:</span><span class="pl-e">Action</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/ThrowException<span class="pl-pds">"</span></span> <span class="pl-e">message</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ITestService_ThrowException_InputMessage<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span> <span class="pl-e">wsaw</span><span class="pl-e">:</span><span class="pl-e">Action</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/ThrowExceptionResponse<span class="pl-pds">"</span></span> <span class="pl-e">message</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ITestService_ThrowException_OutputMessage<span class="pl-pds">"</span></span>/&gt;
+        &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span>&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">portType</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">binding</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>BasicHttpBinding_ITestService<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:ITestService<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">binding</span> <span class="pl-e">transport</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.xmlsoap.org/soap/http<span class="pl-pds">"</span></span>/&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>GetData<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">soapAction</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/GetData<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>document<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span>&gt;
+                &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">body</span> <span class="pl-e">use</span>=<span class="pl-s"><span class="pl-pds">"</span>literal<span class="pl-pds">"</span></span>/&gt;
+            &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span>&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span>&gt;
+                &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">body</span> <span class="pl-e">use</span>=<span class="pl-s"><span class="pl-pds">"</span>literal<span class="pl-pds">"</span></span>/&gt;
+            &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span>&gt;
+        &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>GetDataUsingDataContract<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">soapAction</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/GetDataUsingDataContract<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>document<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span>&gt;
+                &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">body</span> <span class="pl-e">use</span>=<span class="pl-s"><span class="pl-pds">"</span>literal<span class="pl-pds">"</span></span>/&gt;
+            &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span>&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span>&gt;
+                &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">body</span> <span class="pl-e">use</span>=<span class="pl-s"><span class="pl-pds">"</span>literal<span class="pl-pds">"</span></span>/&gt;
+            &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span>&gt;
+        &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>SetData<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">soapAction</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/SetData<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>document<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span>&gt;
+                &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">body</span> <span class="pl-e">use</span>=<span class="pl-s"><span class="pl-pds">"</span>literal<span class="pl-pds">"</span></span>/&gt;
+            &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span>&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span>&gt;
+                &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">body</span> <span class="pl-e">use</span>=<span class="pl-s"><span class="pl-pds">"</span>literal<span class="pl-pds">"</span></span>/&gt;
+            &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span>&gt;
+        &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>PerformOperation<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">soapAction</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/PerformOperation<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>document<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span>&gt;
+                &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">body</span> <span class="pl-e">use</span>=<span class="pl-s"><span class="pl-pds">"</span>literal<span class="pl-pds">"</span></span>/&gt;
+            &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span>&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span>&gt;
+                &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">body</span> <span class="pl-e">use</span>=<span class="pl-s"><span class="pl-pds">"</span>literal<span class="pl-pds">"</span></span>/&gt;
+            &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span>&gt;
+        &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ThrowException<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">operation</span> <span class="pl-e">soapAction</span>=<span class="pl-s"><span class="pl-pds">"</span>http://tempuri.org/ITestService/ThrowException<span class="pl-pds">"</span></span> <span class="pl-e">style</span>=<span class="pl-s"><span class="pl-pds">"</span>document<span class="pl-pds">"</span></span>/&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span>&gt;
+                &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">body</span> <span class="pl-e">use</span>=<span class="pl-s"><span class="pl-pds">"</span>literal<span class="pl-pds">"</span></span>/&gt;
+            &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">input</span>&gt;
+            &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span>&gt;
+                &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">body</span> <span class="pl-e">use</span>=<span class="pl-s"><span class="pl-pds">"</span>literal<span class="pl-pds">"</span></span>/&gt;
+            &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">output</span>&gt;
+        &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">operation</span>&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">binding</span>&gt;
+    &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">service</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>Service1<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">port</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>BasicHttpBinding_ITestService<span class="pl-pds">"</span></span> <span class="pl-e">binding</span>=<span class="pl-s"><span class="pl-pds">"</span>tns:BasicHttpBinding_ITestService<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">soap</span><span class="pl-ent">:</span><span class="pl-ent">address</span> <span class="pl-e">location</span>=<span class="pl-s"><span class="pl-pds">"</span>http://localhost:8733/Design_Time_Addresses/TestService/Service1/<span class="pl-pds">"</span></span>/&gt;
+        &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">port</span>&gt;
+    &lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">service</span>&gt;
+&lt;/<span class="pl-ent">wsdl</span><span class="pl-ent">:</span><span class="pl-ent">definitions</span>&gt;</pre></div>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
