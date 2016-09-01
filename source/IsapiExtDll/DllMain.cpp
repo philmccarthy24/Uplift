@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "UpliftCore.h"
 #include "IsapiBindings.h"
+#include "TestServiceImpl.h"
 
 // Global request processing object
 Uplift::Core::CUpliftCore UpliftCore;
@@ -19,7 +20,7 @@ BOOL APIENTRY DllMain(HINSTANCE hInst, DWORD  reason, LPVOID pReserved)
 			DisableThreadLibraryCalls(hInst);
 
 			// register the service implementation with the core
-			UpliftCore.RegisterService(nullptr); // TODO - add service
+			UpliftCore.RegisterService(std::make_shared<org::tempuri::CTestServiceImpl>());
 
 			// register the core as a request handler with the Isapi layer
 			HttpLayer.RegisterRequestHandler(&UpliftCore);

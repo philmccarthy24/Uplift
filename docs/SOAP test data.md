@@ -1,0 +1,429 @@
+# C# service interface for generating some sample soap packets to test with
+
+```c#
+public interface ITestService
+{
+	string GetData();
+	CompositeType GetDataUsingDataContract(CompositeType composite);
+	void SetData(byte[] binaryData, double importantNumber);
+	long PerformOperation(List<double> things, int widgetValue);
+	void ThrowException();
+}
+
+public class CompositeType
+{
+    public bool BoolValue { get; set; }
+    public string StringValue { get; set; }
+}
+```
+
+---
+
+## string GetData()
+
+### Request:
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/ITestService/GetData</Action>
+  </s:Header>
+  <s:Body>
+    <GetData xmlns="http://tempuri.org/" />
+  </s:Body>
+</s:Envelope>
+```
+
+### Response:
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header />
+  <s:Body>
+    <GetDataResponse xmlns="http://tempuri.org/">
+      <GetDataResult>Here is a nice string</GetDataResult>
+    </GetDataResponse>
+  </s:Body>
+</s:Envelope>
+```
+
+---
+
+## CompositeType GetDataUsingDataContract(CompositeType composite)
+
+### Request:
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/ITestService/GetDataUsingDataContract</Action>
+  </s:Header>
+  <s:Body>
+    <GetDataUsingDataContract xmlns="http://tempuri.org/">
+      <composite xmlns:d4p1="http://schemas.datacontract.org/2004/07/TestService" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <d4p1:BoolValue>false</d4p1:BoolValue>
+        <d4p1:StringValue>Hello world</d4p1:StringValue>
+      </composite>
+    </GetDataUsingDataContract>
+  </s:Body>
+</s:Envelope>
+```
+
+### Response:
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header />
+  <s:Body>
+    <GetDataUsingDataContractResponse xmlns="http://tempuri.org/">
+      <GetDataUsingDataContractResult xmlns:a="http://schemas.datacontract.org/2004/07/TestService" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <a:BoolValue>false</a:BoolValue>
+        <a:StringValue>Hello world</a:StringValue>
+      </GetDataUsingDataContractResult>
+    </GetDataUsingDataContractResponse>
+  </s:Body>
+</s:Envelope>
+```
+
+---
+
+## void SetData(byte[] binaryData, double importantNumber)
+
+### Request:
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/ITestService/SetData</Action>
+  </s:Header>
+  <s:Body>
+    <SetData xmlns="http://tempuri.org/">
+      <binaryData>GSyPSMY=</binaryData>
+      <importantNumber>3.14159</importantNumber>
+    </SetData>
+  </s:Body>
+</s:Envelope>
+```
+
+### Response:
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header />
+  <s:Body>
+    <SetDataResponse xmlns="http://tempuri.org/" />
+  </s:Body>
+</s:Envelope>
+```
+
+---
+
+## long PerformOperation(List<double> things, int widgetValue)
+
+### Request:
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/ITestService/PerformOperation</Action>
+  </s:Header>
+  <s:Body>
+    <PerformOperation xmlns="http://tempuri.org/">
+      <things>
+        <double xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">2.342</double>
+        <double xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">9.432532</double>
+        <double xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">18.34</double>
+        <double xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">-44.2143</double>
+      </things>
+      <widgetValue>687</widgetValue>
+    </PerformOperation>
+  </s:Body>
+</s:Envelope>
+```
+
+### Response:
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header />
+  <s:Body>
+    <PerformOperationResponse xmlns="http://tempuri.org/">
+      <PerformOperationResult>-8587301708131772340</PerformOperationResult>
+    </PerformOperationResponse>
+  </s:Body>
+</s:Envelope>
+```
+
+---
+
+## void ThrowException()
+
+### Request
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/ITestService/ThrowException</Action>
+  </s:Header>
+  <s:Body>
+    <ThrowException xmlns="http://tempuri.org/" />
+  </s:Body>
+</s:Envelope>
+```
+
+### Response
+
+```xml
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header />
+  <s:Body>
+    <s:Fault>
+      <faultcode xmlns:a="http://schemas.microsoft.com/net/2005/12/windowscommunicationfoundation/dispatcher">a:InternalServiceFault</faultcode>
+      <faultstring xml:lang="en-GB">The server was unable to process the request due to an internal error.  For more information about the error, either turn on IncludeExceptionDetailInFaults (either from ServiceBehaviorAttribute or from the &lt;serviceDebug&gt; configuration behavior) on the server in order to send the exception information back to the client, or turn on tracing as per the Microsoft .NET Framework SDK documentation and inspect the server trace logs.</faultstring>
+    </s:Fault>
+  </s:Body>
+</s:Envelope>
+```
+
+---
+
+## WSDL
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+    <wsdl:types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="http://schemas.datacontract.org/2004/07/TestService"/>
+            <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+            <xs:element name="GetData">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetDataResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetDataUsingDataContract">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="composite" nillable="true" type="q1:CompositeType" xmlns:q1="http://schemas.datacontract.org/2004/07/TestService"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetDataUsingDataContractResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q2:CompositeType" xmlns:q2="http://schemas.datacontract.org/2004/07/TestService"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SetData">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="binaryData" nillable="true" type="xs:base64Binary"/>
+                        <xs:element minOccurs="0" name="importantNumber" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SetDataResponse">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PerformOperation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="things" nillable="true" type="q3:ArrayOfdouble" xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+                        <xs:element minOccurs="0" name="widgetValue" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PerformOperationResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="PerformOperationResult" type="xs:long"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ThrowException">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ThrowExceptionResponse">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+            <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+            <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+            <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+            <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+            <xs:element name="byte" nillable="true" type="xs:byte"/>
+            <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+            <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+            <xs:element name="double" nillable="true" type="xs:double"/>
+            <xs:element name="float" nillable="true" type="xs:float"/>
+            <xs:element name="int" nillable="true" type="xs:int"/>
+            <xs:element name="long" nillable="true" type="xs:long"/>
+            <xs:element name="QName" nillable="true" type="xs:QName"/>
+            <xs:element name="short" nillable="true" type="xs:short"/>
+            <xs:element name="string" nillable="true" type="xs:string"/>
+            <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+            <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+            <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+            <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+            <xs:element name="char" nillable="true" type="tns:char"/>
+            <xs:simpleType name="char">
+                <xs:restriction base="xs:int"/>
+            </xs:simpleType>
+            <xs:element name="duration" nillable="true" type="tns:duration"/>
+            <xs:simpleType name="duration">
+                <xs:restriction base="xs:duration">
+                    <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+                    <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+                    <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="guid" nillable="true" type="tns:guid"/>
+            <xs:simpleType name="guid">
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:attribute name="FactoryType" type="xs:QName"/>
+            <xs:attribute name="Id" type="xs:ID"/>
+            <xs:attribute name="Ref" type="xs:IDREF"/>
+        </xs:schema>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TestService" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/TestService">
+            <xs:complexType name="CompositeType">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="BoolValue" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CompositeType" nillable="true" type="tns:CompositeType"/>
+        </xs:schema>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+            <xs:complexType name="ArrayOfdouble">
+                <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="double" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ArrayOfdouble" nillable="true" type="tns:ArrayOfdouble"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="ITestService_GetData_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetData"/>
+    </wsdl:message>
+    <wsdl:message name="ITestService_GetData_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ITestService_GetDataUsingDataContract_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDataUsingDataContract"/>
+    </wsdl:message>
+    <wsdl:message name="ITestService_GetDataUsingDataContract_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ITestService_SetData_InputMessage">
+        <wsdl:part name="parameters" element="tns:SetData"/>
+    </wsdl:message>
+    <wsdl:message name="ITestService_SetData_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SetDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ITestService_PerformOperation_InputMessage">
+        <wsdl:part name="parameters" element="tns:PerformOperation"/>
+    </wsdl:message>
+    <wsdl:message name="ITestService_PerformOperation_OutputMessage">
+        <wsdl:part name="parameters" element="tns:PerformOperationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ITestService_ThrowException_InputMessage">
+        <wsdl:part name="parameters" element="tns:ThrowException"/>
+    </wsdl:message>
+    <wsdl:message name="ITestService_ThrowException_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ThrowExceptionResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ITestService">
+        <wsdl:operation name="GetData">
+            <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetData" message="tns:ITestService_GetData_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetDataResponse" message="tns:ITestService_GetData_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDataUsingDataContract">
+            <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetDataUsingDataContract" message="tns:ITestService_GetDataUsingDataContract_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetDataUsingDataContractResponse" message="tns:ITestService_GetDataUsingDataContract_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SetData">
+            <wsdl:input wsaw:Action="http://tempuri.org/ITestService/SetData" message="tns:ITestService_SetData_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ITestService/SetDataResponse" message="tns:ITestService_SetData_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="PerformOperation">
+            <wsdl:input wsaw:Action="http://tempuri.org/ITestService/PerformOperation" message="tns:ITestService_PerformOperation_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ITestService/PerformOperationResponse" message="tns:ITestService_PerformOperation_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ThrowException">
+            <wsdl:input wsaw:Action="http://tempuri.org/ITestService/ThrowException" message="tns:ITestService_ThrowException_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ITestService/ThrowExceptionResponse" message="tns:ITestService_ThrowException_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BasicHttpBinding_ITestService" type="tns:ITestService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetData">
+            <soap:operation soapAction="http://tempuri.org/ITestService/GetData" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDataUsingDataContract">
+            <soap:operation soapAction="http://tempuri.org/ITestService/GetDataUsingDataContract" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SetData">
+            <soap:operation soapAction="http://tempuri.org/ITestService/SetData" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="PerformOperation">
+            <soap:operation soapAction="http://tempuri.org/ITestService/PerformOperation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ThrowException">
+            <soap:operation soapAction="http://tempuri.org/ITestService/ThrowException" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Service1">
+        <wsdl:port name="BasicHttpBinding_ITestService" binding="tns:BasicHttpBinding_ITestService">
+            <soap:address location="http://localhost:8733/Design_Time_Addresses/TestService/Service1/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
+```
