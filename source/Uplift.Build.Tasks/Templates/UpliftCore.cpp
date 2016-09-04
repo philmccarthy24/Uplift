@@ -3,7 +3,6 @@
 #include "IsapiBindings.h"
 #include "ITestService.h"
 #include "Errors.h"
-#include "Resource.h"
 #include <ctime>
 #include <sstream>
 #include <iomanip>
@@ -85,7 +84,7 @@ namespace Uplift
 					auto replyBody = (StringFormat("<GetDataResponse xmlns=\"http://tempuri.org/\"><GetDataResult>{0}</GetDataResult></GetDataResponse>") % result).str();
 					reply = (StringFormat(replyEnvelopeTemplate) % replyBody).str();
 				}
-				if (reqOp == "GetDataUsingDataContract")
+				else if (reqOp == "GetDataUsingDataContract")
 				{
 					// declare variables to deserialise
 					org::tempuri::CompositeType composite;

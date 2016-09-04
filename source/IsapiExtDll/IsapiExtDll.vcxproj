@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build;CodeGen" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -42,19 +42,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)libs\pugixml-1.7\src;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)pugixml;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LocalDebuggerCommandArguments>/config:$(TargetDir)\IISExpress.config</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>/config:$(OutDir)\IISExpress.config</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerCommand>C:\Program Files (x86)\IIS Express\iisexpress.exe</LocalDebuggerCommand>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)libs\pugixml-1.7\src;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)pugixml;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LocalDebuggerCommandArguments>/config:$(TargetDir)\IISExpress.config</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>/config:$(OutDir)\IISExpress.config</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerCommand>C:\Program Files (x86)\IIS Express\iisexpress.exe</LocalDebuggerCommand>
   </PropertyGroup>
@@ -73,10 +73,7 @@
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
       <AdditionalOptions>/ignore:4099 /NODEFAULTLIB:MSVCRT %(AdditionalOptions)</AdditionalOptions>
     </Link>
-    <PostBuildEvent>
-      <Command>powershell.exe -ExecutionPolicy Bypass -File CopyIISExpressConfig.ps1 $(ProjectDir)IISExpress.config $(TargetDir)</Command>
-      <Message>Setup iisexpress config</Message>
-    </PostBuildEvent>
+    <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -99,41 +96,50 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Base64.h" />
-    <ClInclude Include="IRequestHandler.h" />
-    <ClInclude Include="IsapiBindings.h" />
-    <ClInclude Include="Errors.h" />
     <ClInclude Include="ITestService.h" />
-    <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="StringFormat.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestServiceImpl.h" />
-    <ClInclude Include="UpliftCore.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Base64.cpp" />
-    <ClCompile Include="DllMain.cpp" />
-    <ClCompile Include="IsapiBindings.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="StringFormat.cpp" />
     <ClCompile Include="TestServiceImpl.cpp" />
-    <ClCompile Include="UpliftCore.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="IsapiExtDll.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="exports.def" />
-    <None Include="Resources\StatusPageTemplate.cphtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="Resources\TestService.wsdl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <!-- import the uplift build tasks -->
+  <UsingTask TaskName="GenerateCodeTask" AssemblyFile="Uplift.Build.Tasks.dll" />
+  <UsingTask TaskName="RemoveGeneratedCodeTask" AssemblyFile="Uplift.Build.Tasks.dll" />
+  <UsingTask TaskName="PrepareIISExpressConfigTask" AssemblyFile="Uplift.Build.Tasks.dll" />
+  <UsingTask TaskName="EmbedResourcesTask" AssemblyFile="Uplift.Build.Tasks.dll" />
+  <!-- Uplift build targets -->
+  <Target Name="CodeGen" BeforeTargets="ClCompile">
+    <GenerateCodeTask ServiceInterfaceFile="$(ProjectDir)\ITestService.h">
+      <Output ItemName="GenCppList" TaskParameter="GeneratedCpps" />
+      <Output ItemName="GenHeaderList" TaskParameter="GeneratedHeaders" />
+	  <Output ItemName="GenResList" TaskParameter="GeneratedResources" />
+    </GenerateCodeTask>
+    <ItemGroup>
+      <ClCompile Include="@(GenCppList)" />
+      <ClInclude Include="@(GenHeaderList)" />
+    </ItemGroup>
+  </Target>
+  <Target Name="AfterBuild">
+    <PrepareIISExpressConfigTask SourceIISExpressConfig="$(ProjectDir)\IISExpress.config" TargetDir="$(OutDir)" />
+	<!-- we want to transparently embed the wsdl and status page template without interfering with whatever
+	resources web service developers wish to embed using the builtin resource compiler mechanism, so we use
+	a custom target which uses the UpdateResource API -->
+	<EmbedResourcesTask TargetExe="$(TargetPath)" FilesToEmbed="@(GenResList)" />
+    <RemoveGeneratedCodeTask />
+  </Target>
+  <Target Name="AfterClean">
+    <RemoveGeneratedCodeTask />
+  </Target>
 </Project>
