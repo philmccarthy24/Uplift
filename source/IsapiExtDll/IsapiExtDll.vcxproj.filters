@@ -9,18 +9,8 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Service">
       <UniqueIdentifier>{3db7429f-0ab7-4534-ac46-6145b9b62cd9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utility">
-      <UniqueIdentifier>{baefabbb-2ead-437e-94a3-cff88b1a9435}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core">
-      <UniqueIdentifier>{25d6df11-2ab3-4017-9123-2751358e7f4e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,32 +20,11 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ITestService.h">
       <Filter>Service</Filter>
     </ClInclude>
     <ClInclude Include="TestServiceImpl.h">
       <Filter>Service</Filter>
-    </ClInclude>
-    <ClInclude Include="Base64.h">
-      <Filter>Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="StringFormat.h">
-      <Filter>Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="IRequestHandler.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="IsapiBindings.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="UpliftCore.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Errors.h">
-      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,38 +34,10 @@
     <ClCompile Include="TestServiceImpl.cpp">
       <Filter>Service</Filter>
     </ClCompile>
-    <ClCompile Include="Base64.cpp">
-      <Filter>Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="StringFormat.cpp">
-      <Filter>Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="DllMain.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="IsapiBindings.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="UpliftCore.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="IsapiExtDll.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="exports.def">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="Resources\StatusPageTemplate.cphtml">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="Resources\TestService.wsdl">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
   </ItemGroup>
 </Project>

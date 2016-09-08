@@ -16,6 +16,10 @@ namespace org
 }
 //</for_generation>
 
+// big ids chosen to avoid conflicts with rc compiled resources
+#define IDR_CPHTML_FILE					905
+#define IDR_WSDL_FILE                   904
+
 namespace Uplift
 {
 	namespace Core
