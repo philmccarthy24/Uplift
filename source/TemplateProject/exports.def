@@ -1,0 +1,9 @@
+; Declares the module parameters for the DLL.
+LIBRARY    "$projectname$"
+
+EXPORTS
+   HttpExtensionProc
+   
+   GetExtensionVersion
+   
+   TerminateExtension

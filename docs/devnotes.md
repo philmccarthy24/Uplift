@@ -38,3 +38,11 @@ That said, ISAPI is supported on several different web servers, which might give
 
 GML thread safety is still an issue - confirmed with Jeremy Sallis that multiple instances of SprintSurfaceCreator do indeed execute simultaneously for speed / efficiency, so it is an issue for a single loaded service to serve several clients at once. :( Not yet sure what the solution is - should check with GML team what the situation is wrt thread safety.
 That said, the morpher isn't exclusively using GML - the code taking longest to run might be made threadsafe fairly straight forwardly.
+
+## Project template creation
+
+VS2013 - will need to get hold of the [SDK](https://www.microsoft.com/en-us/download/confirmation.aspx?id=40758) to support Vix creation etc
+
+[This seems like a good article](http://www.dotnetcurry.com/visualstudio/1243/create-project-template-visual-studio-2013-2015).
+
+[This shows how to write the template wizard without needing to install to gac](http://stackoverflow.com/questions/16244185/using-iwizard-in-an-item-template-without-installing-assembly-in-gac)
