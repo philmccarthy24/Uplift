@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>C++ Web Service</Name>
+    <Description>SOAP Web Service using Uplift - https://github.com/philmccarthy24/Uplift</Description>
+    <ProjectType>VC</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>WebService</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+    <PreviewImage>__PreviewImage.png</PreviewImage>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="IsapiExtDll.vcxproj" File="IsapiExtDll.vcxproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="$projectname$.vcxproj.filters">IsapiExtDll.vcxproj.filters</ProjectItem>
+      <ProjectItem>stdafx.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="true">exports.def</ProjectItem>
+      <ProjectItem ReplaceParameters="true">DllMain.cpp</ProjectItem>
+      <ProjectItem>stdafx.h</ProjectItem>
+      <ProjectItem>targetver.h</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="$serviceinterfacename$.h" OpenInEditor="true" OpenOrder="1">ITestService.h</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="$serviceimplclassname$.h" OpenInEditor="true" OpenOrder="2">TestServiceImpl.h</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="$serviceimplclassname$.cpp" OpenInEditor="true" OpenOrder="3">TestServiceImpl.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="true">IISExpress.config</ProjectItem>
+      <ProjectItem>pugixml\pugiconfig.hpp</ProjectItem>
+      <ProjectItem>pugixml\pugixml.cpp</ProjectItem>
+      <ProjectItem>pugixml\pugixml.hpp</ProjectItem>
+      <ProjectItem>pugixml\readme.txt</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>NewProjectWizard</Assembly>
+    <FullClassName>Uplift.VSExtensions.NewProjectWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

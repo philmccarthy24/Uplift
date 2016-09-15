@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{26FB24ED-A8F6-4A93-9C5B-9A98D389BF3B}</ProjectGuid>
+    <ProjectGuid>{$guid1$}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>IsapiExtDll</RootNamespace>
+    <RootNamespace>$safeprojectname$</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -96,20 +96,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ITestService.h" />
+    <ClInclude Include="$serviceinterfacename$.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="TestServiceImpl.h" />
+    <ClInclude Include="$serviceimplclassname$.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TestServiceImpl.cpp" />
+    <ClCompile Include="$serviceimplclassname$.cpp" />
+    <ClCompile Include="DllMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="exports.def" />
+    <None Include="IISExpress.config"/>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
@@ -121,7 +123,7 @@
   <UsingTask TaskName="EmbedResourcesTask" AssemblyFile="Uplift.Build.Tasks.dll" />
   <!-- Uplift build targets -->
   <Target Name="CodeGen" BeforeTargets="ClCompile">
-    <GenerateCodeTask ServiceInterfaceFile="$(ProjectDir)\ITestService.h">
+    <GenerateCodeTask ServiceInterfaceFile="$(ProjectDir)\$serviceinterfacename$.h">
       <Output ItemName="GenCppList" TaskParameter="GeneratedCpps" />
       <Output ItemName="GenHeaderList" TaskParameter="GeneratedHeaders" />
 	  <Output ItemName="GenResList" TaskParameter="GeneratedResources" />
