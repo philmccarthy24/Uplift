@@ -5,17 +5,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Uplift.Utility
+namespace Uplift.Utility.HppParser
 {
-    //////////////////////////////////////////////////////////////////////////////////
-    /////////// Classes in Parse Tree / Expression Tree, which defines *how* to parse
+    // can + operator be added as extenion method? Prob should add class
+    // called InternalDSLExtensionMethods or something
 
-    public abstract class ExpressionItem
+    //////////////////////////////////////////////////////////////////////////////////
+    /////////// Classes in Parse Tree, which defines *how* to parse
+
+    public abstract class ParseRule
     {
         public string Name { get; set; } //optional
+
+        public static IList<ParseRule> operator +(ParseRule pr1, ParseRule pr2)
+        {
+            return new List<ParseRule> {pr1, pr2};
+        }
+
+        public static IList<ParseRule> operator +(IList<ParseRule> list, ParseRule pr3)
+        {
+            list.Add(pr3);
+            return list;
+        }
     }
 
-    public abstract class TerminalSymbol : ExpressionItem
+    public abstract class TerminalSymbol : ParseRule
     {
     }
 
@@ -26,8 +40,13 @@ namespace Uplift.Utility
     }
 
     // terminal that is a string literal match
-    public sealed class LiteralTerminal : TerminalSymbol
+    public class LiteralTerminal : TerminalSymbol
     {
+        public LiteralTerminal(string symbol)
+        {
+            Symbol = symbol;
+        }
+
         public string Symbol { get; set; }
     }
 
@@ -35,6 +54,10 @@ namespace Uplift.Utility
     // nested such symbols and sections, eg {
     public sealed class OpenNestedSectionTerminal : LiteralTerminal
     {
+        public OpenNestedSectionTerminal(string symbol) 
+            : base(symbol)
+        {
+        }
     }
 
     // a terminal which marks the end of a section that can contain
@@ -43,18 +66,21 @@ namespace Uplift.Utility
     // balanced opening and closed symbols to the containing expressions
     public sealed class CloseNestedSectionTerminal : LiteralTerminal
     {
+        public CloseNestedSectionTerminal(string symbol)
+            : base(symbol)
+        {
+        }
     }
 
-    public sealed class NonTerminal : ExpressionItem
+    public sealed class NonTerminal : ParseRule
     {
         public NonTerminal()
         {
-            SubItems = new List<ExpressionItem>();
+            EvaluationOptions = new List<IList<ParseRule>>();
         }
 
-        public bool OneOrMore { get; set; }
-
-        public IList<ExpressionItem> SubItems { get; set; } // TODO: We need to represent "OR" rules somehow, ie alternative parsing paths. List of Lists?
+        public IList<IList<ParseRule>> EvaluationOptions { get; set; }
+        //public IList<ParseRule> SubItems { get; set; } // TODO: We need to represent "OR" rules somehow, ie alternative parsing paths. List of Lists?
                                                             // would be quite nice to put this into a DSL somehow...
     }
 
@@ -76,19 +102,20 @@ namespace Uplift.Utility
     // Ad-hoc parser to parse C++ Header Files for C++ Declarations.
     // This is lighter weight than using a full C++ compiler, and can be contained within a single
     // assembly, with no additional dependencies. The tradeoff is obviously less accurate parsing!
-    public class HppParser
+    public class Parser
     {
-        public HppParser()
+        public Parser()
         {
             // define a simple C++ declaration expression tree
 
-            var cppDeclarations = new NonTerminal { Name = "CppDeclarations" };
-            var cppDeclaration = new NonTerminal { Name = "CppDeclaration", OneOrMore = true };
-            cppDeclarations.SubItems.Add(cppDeclaration);
+            var cppDeclaration = new NonTerminal { Name = "CppDeclaration" };
+
+            // What does this do?
+            var test = new LiteralTerminal("#include") + new LiteralTerminal("bang") + new LiteralTerminal("jolly");
 
             /* This is the psuedo BNF for what we're trying to achieve
             
-            cppDeclarations => cppDeclaration+ | ''
+            cppDeclarations => cppDeclaration+ | '' // I think this should be implicit
             cppDeclaration => include
             cppDeclaration => namespace_declaration
             cppDeclaration => comment
